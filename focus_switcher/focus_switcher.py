@@ -183,16 +183,6 @@ def switchFocus(direction):
             target   = win
 
     if target != None:
-        # https://stackoverflow.com/a/3297152
-        # NOTE: Sometimes this changes focus but doesn't bring win to the front
-        # target.win.set_input_focus(X.RevertToParent, X.CurrentTime)
-        # target.win.configure(stack_mode=X.Above)
-
-        # target.win.circulate(X.RaiseLowest)
-        # target.win.raise_window()
-        # Xlib.protocol.event.ClientMessage(
-        #         window=target.win,
-
         # https://xorg.freedesktop.narkive.com/iWck9TMY/xlib-force-raise-map-focus-a-given-window
         ev = Xlib.protocol.event.ClientMessage(
                 window=target.win,

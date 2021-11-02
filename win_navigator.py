@@ -1,6 +1,12 @@
 #!/usr/bin/env python2
 
-# NOTE: Mostly ideas here are stolen from Quicktile.
+# The code for hotkey handling and searching in the window tree is based on
+# Quicktile implementations.
+# (https://github.com/ssokolow/quicktile)
+#
+# Also, this script was heavily inspired by Quicktile, with the idea to
+# (partially?) integrate with it (quicktile provides the tiling, winavi
+#                                 provides the navigation)
 
 from Xlib import display, X
 import subprocess
@@ -8,7 +14,6 @@ from focus_switcher import switchFocus, getWinList
 
 d = display.Display()
 root = d.screen().root
-# d.sync()
 
 # Xlib programming manual:
 #   https://tronche.com/gui/x/xlib/
@@ -88,8 +93,4 @@ while True:
         if key == 'l': switchFocus('R')
     except RuntimeError:
         pass
-    # if key == 'h': subprocess.call(['move', 'L'])
-    # if key == 'j': subprocess.call(['move', 'D'])
-    # if key == 'k': subprocess.call(['move', 'U'])
-    # if key == 'l': subprocess.call(['move', 'R'])
 
